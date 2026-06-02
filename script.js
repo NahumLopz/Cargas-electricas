@@ -1242,7 +1242,7 @@ function resizeCanvas() {
 
     draw();
 }
-
+//Perdon si leyo el anterior com
 window.addEventListener('resize', resizeCanvas);
 window.addEventListener('load', resizeCanvas);
 init();
