@@ -1,0 +1,398 @@
+/* =========================
+   RESET
+========================= */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+:root{
+    --bg:#0b1020;
+    --panel:#121a30;
+    --panel-light:#1b2747;
+    --border:#2d3a5e;
+    --primary:#4f8cff;
+    --primary-hover:#3c7df8;
+    --success:#00c27a;
+    --danger:#ff5f6d;
+    --text:#eef3ff;
+    --muted:#9ba8c7;
+    --shadow:0 10px 40px rgba(0,0,0,.35);
+}
+
+html,
+body{
+    width:100%;
+    height:100%;
+    overflow:hidden;
+}
+
+body{
+    font-family:Inter,Segoe UI,sans-serif;
+    background:
+        radial-gradient(circle at top left,#1a2c5e 0%,transparent 40%),
+        radial-gradient(circle at bottom right,#2a144a 0%,transparent 40%),
+        var(--bg);
+    color:var(--text);
+}
+
+/* =========================
+   CONTENEDOR
+========================= */
+
+.container{
+    width:100vw;
+    height:100vh;
+    display:flex;
+    flex-direction:column;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+.header{
+    height:80px;
+    padding:0 30px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    background:rgba(18,26,48,.85);
+    backdrop-filter:blur(20px);
+
+    border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+.header h1{
+    font-size:28px;
+    font-weight:800;
+}
+
+.header h1 span{
+    color:var(--primary);
+}
+
+.sub{
+    color:var(--muted);
+    font-size:13px;
+}
+
+/* =========================
+   BOTONES DE MODO
+========================= */
+
+.mode-toggle{
+    display:flex;
+    gap:6px;
+    background:#0f1730;
+    padding:6px;
+    border-radius:12px;
+}
+
+.mode-btn{
+    border:none;
+    background:transparent;
+    color:var(--muted);
+    padding:10px 22px;
+    border-radius:10px;
+    cursor:pointer;
+    transition:.25s;
+    font-weight:600;
+}
+
+.mode-btn:hover{
+    color:white;
+}
+
+.mode-btn.active{
+    background:linear-gradient(135deg,#4f8cff,#6e6cff);
+    color:white;
+    box-shadow:0 0 20px rgba(79,140,255,.5);
+}
+
+/* =========================
+   MAIN
+========================= */
+
+.main{
+    flex:1;
+    display:flex;
+    overflow:hidden;
+}
+
+/* =========================
+   CANVAS
+========================= */
+
+.canvas-wrap{
+    flex:1;
+    padding:20px;
+    overflow:hidden;
+}
+
+.canvas-frame{
+    width:100%;
+    height:100%;
+    border-radius:20px;
+
+    background:#0f1730;
+    border:1px solid rgba(255,255,255,.08);
+
+    box-shadow:var(--shadow);
+
+    overflow:hidden;
+}
+
+.canvas-frame canvas{
+    width:100%;
+    height:100%;
+    display:block;
+}
+
+/* =========================
+   SIDEBAR
+========================= */
+
+.sidebar{
+    width:360px;
+    background:rgba(18,26,48,.95);
+
+    backdrop-filter:blur(20px);
+
+    border-left:1px solid rgba(255,255,255,.08);
+
+    overflow-y:auto;
+}
+
+.sidebar::-webkit-scrollbar{
+    width:8px;
+}
+
+.sidebar::-webkit-scrollbar-thumb{
+    background:#32446f;
+    border-radius:20px;
+}
+
+/* =========================
+   SECCIONES
+========================= */
+
+.sidebar-section{
+    padding:20px;
+    border-bottom:1px solid rgba(255,255,255,.06);
+}
+
+.section-title{
+    font-size:12px;
+    text-transform:uppercase;
+    letter-spacing:2px;
+    color:#7d92c8;
+    margin-bottom:15px;
+    font-weight:700;
+}
+
+/* =========================
+   LISTA DE CARGAS
+========================= */
+
+.charge-item{
+    display:flex;
+    align-items:center;
+    gap:10px;
+
+    padding:12px;
+    margin-bottom:8px;
+
+    border-radius:12px;
+
+    background:#161f39;
+
+    transition:.25s;
+    cursor:pointer;
+}
+
+.charge-item:hover{
+    transform:translateY(-2px);
+    background:#1d2a4d;
+}
+
+.charge-item.selected{
+    border:1px solid var(--primary);
+    box-shadow:0 0 20px rgba(79,140,255,.3);
+}
+
+.charge-dot{
+    width:14px;
+    height:14px;
+    border-radius:50%;
+}
+
+.positive{
+    background:#ff5f6d;
+}
+
+.negative{
+    background:#4f8cff;
+}
+
+.charge-name{
+    font-weight:700;
+}
+
+.charge-q{
+    margin-left:auto;
+}
+
+/* =========================
+   INPUTS
+========================= */
+
+.form-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:10px;
+}
+
+.form-group{
+    display:flex;
+    flex-direction:column;
+    gap:5px;
+}
+
+.form-group.full{
+    grid-column:1/-1;
+}
+
+.form-group label{
+    color:var(--muted);
+    font-size:12px;
+}
+
+.form-group input{
+    background:#0f1730;
+    border:1px solid var(--border);
+    color:white;
+
+    padding:12px;
+    border-radius:10px;
+
+    transition:.25s;
+}
+
+.form-group input:focus{
+    outline:none;
+    border-color:var(--primary);
+    box-shadow:0 0 15px rgba(79,140,255,.3);
+}
+
+/* =========================
+   BOTONES
+========================= */
+
+.btn{
+    border:none;
+    border-radius:10px;
+    padding:12px 16px;
+    cursor:pointer;
+
+    font-weight:700;
+
+    transition:.25s;
+}
+
+.btn:hover{
+    transform:translateY(-2px);
+}
+
+.btn-primary{
+    background:linear-gradient(135deg,#4f8cff,#6e6cff);
+    color:white;
+}
+
+.btn-success{
+    background:linear-gradient(135deg,#00c27a,#00e08c);
+    color:white;
+}
+
+.btn-danger{
+    background:linear-gradient(135deg,#ff5f6d,#ff7878);
+    color:white;
+}
+
+.btn-secondary{
+    background:#233155;
+    color:white;
+}
+
+/* =========================
+   RESULTADOS
+========================= */
+
+.results-box{
+    background:#0f1730;
+    border:1px solid rgba(255,255,255,.08);
+
+    border-radius:15px;
+
+    padding:15px;
+
+    line-height:1.8;
+
+    font-family:Consolas,monospace;
+
+    box-shadow:inset 0 0 20px rgba(0,0,0,.2);
+}
+
+.results-box .label{
+    color:#7d92c8;
+    font-weight:700;
+}
+
+.results-box .fnet{
+    color:#ffd166;
+}
+
+.results-box .efield{
+    color:#00e08c;
+}
+
+/* =========================
+   CHECKBOX
+========================= */
+
+.checkbox-row{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin-bottom:10px;
+}
+
+.checkbox-row input{
+    width:18px;
+    height:18px;
+    accent-color:var(--primary);
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width:900px){
+
+    .main{
+        flex-direction:column;
+    }
+
+    .canvas-wrap{
+        height:55vh;
+    }
+
+    .sidebar{
+        width:100%;
+        height:45vh;
+        border-left:none;
+        border-top:1px solid rgba(255,255,255,.08);
+    }
+}
